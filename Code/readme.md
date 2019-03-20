@@ -6,7 +6,7 @@
 <a href="mailto:muradtariq.tk@gmail.com?Subject=Question%20regarding%20SNWM%20Tool"><img src="https://img.shields.io/badge/feedback-@MuhammadMuradKhan-blue.svg" /></a>
   </p>
 
-  <h2 align="center">Social Network Web Mining (SNWM) Tool</h2>
+  <h2 align="center">Development stages</h2>
  
 
 ## Introduction
