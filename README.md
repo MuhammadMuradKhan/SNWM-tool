@@ -1,16 +1,5 @@
 <p align="center">
   <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
-    <img src="./banner1.png" alt="Research material"  height="300">
-  </a>
-  <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
-    <img src="./banner2.png" alt="Research material"  height="300">
-  </a>
-  <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
-    <img src="./banner3.png" alt="Research material"  height="300">
-  </a>
-  </p>
-<p align="center">
-  <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
     <img src="https://raw.githubusercontent.com/MuhammadMuradKhan/iconspack/master/rg.png" alt="Research material"  height="96">
   </a>
   <p align="center">
