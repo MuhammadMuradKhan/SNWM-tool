@@ -1,9 +1,7 @@
 <p align="center">
-  <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
-    <img src="./banner.png" alt="Research material"  width="980">
+  <a href="https://github.com/MuhammadMuradKhan/UTM-THESIS/tree/master/SWM">
+    <img src="https://raw.githubusercontent.com/MuhammadMuradKhan/iconspack/master/github.png" alt="Git repo" width="96" height="96">
   </a>
-  </p>
-<p align="center">
   <a href="https://www.researchgate.net/project/Tool-Social-Network-Web-Mining-SNWM">
     <img src="https://raw.githubusercontent.com/MuhammadMuradKhan/iconspack/master/rg.png" alt="Research material"  height="96">
   </a>
@@ -11,15 +9,24 @@
 <a href="mailto:muradtariq.tk@gmail.com?Subject=Question%20regarding%20SNWM%20Tool"><img src="https://img.shields.io/badge/feedback-@MuhammadMuradKhan-blue.svg" /></a>
   </p>
 
-  <h2 align="center">Social Network Web Mining (SNWM) Tool</h2>
+  <h2 align="center">Social Network Web Mining (SNWM) Tool workflow model</h2>
  
 
 ## Introduction
-Social Network Web Mining (SNWM) tool is designed for mining public data from social network websites. Currently, it only support Facebook Pages, whereas, LinkedIn and Twitter updates are under construction. Tool's source code is placed in directory <a href="./Code">Code</a>, workflow model is explained in directory <a href="./Workflow model">Workflow model</a>, whereas, requirements are outlined in directory <a href="./Requirements">Requirements</a>.
 
-## Publications
+This section presents the workflow model of the SNWM tool. SNWM workflow model is partitioned with respect to components and phases. The workflow is divided into four components and six phases. This workflow model is inspired by the model presented by Matthias Schur [1].
 
-## Citations
+![Web Developer Roadmap Introduction](./workflow.jpg)
+
+## Components 
+
+![Frontend Roadmap](./images/frontend.png)
+
+## Phases
+
+![Back-end Roadmap](./images/backend.png)
+
+## Explanation
 
 ## References
 
