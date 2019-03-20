@@ -10,15 +10,15 @@
  
 
 ## Introduction
-Social Network Web Mining (SNWM) tool is designed for mining public data from social network websites. Currently, it only support Facebook Pages, whereas, LinkedIn and Twitter updates are under construction. Tool's source code is placed in directory <a href="./Code">Code</a>, workflow model is explained in directory <a href="./Workflow model">Workflow model</a>, whereas, requirements are outlined in directory <a href="./Requirements">Requirements</a>.
+The source code of the SNWM tool is planned to be released in stages. Stages are designed based on the human resource available for the project. The first stage is the proof of concept stage, the second stage is the minimum viable product stage, the third stage is the first stable release and finally proceeding stable releases will be published. Currently, the tool is in proof of concept stage, whereas, features of each stage are explained as follows:
 
-## Publications
+###### Proof of concept
 
-## Citations
+###### Minimum viable product 
 
-## References
+###### First stable release 
 
-[1] Schur, M., Roth, A., & Zeller, A. (2015). "Mining workflow models from web applications". IEEE Transactions on Software Engineering, 41(12), 1184-1201.
+###### Proceeding stable releases
 
 ## Disclaimer
 > This tool is developed using open source technologies such as Java, MySQL, and Selenium. Author / GitUser developed this tool for mining public data from the social network websites (e.g. Facebook). Data available on the social network websites is their property and should be used with their permission, however, this tool only mines data that is searchable by Google (anyone can view the public data available on the social networks). This tool is developed for research purposes only and should not be used for financial purposes or to do ill to others. 

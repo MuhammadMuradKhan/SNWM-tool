@@ -9,7 +9,7 @@
 <a href="mailto:muradtariq.tk@gmail.com?Subject=Question%20regarding%20SNWM%20Tool"><img src="https://img.shields.io/badge/feedback-@MuhammadMuradKhan-blue.svg" /></a>
   </p>
 
-  <h2 align="center">Social Network Web Mining (SNWM) Tool workflow model</h2>
+  <h2 align="center">Social Network Web Mining (SNWM) Tool : The Source Code</h2>
  
 
 ## Introduction
