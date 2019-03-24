@@ -147,8 +147,8 @@ public class main {
 		driver.get("https://m.facebook.com");
 		String title = driver.getTitle();
 		System.out.println(title);
-		CharSequence username = "muhammadmurad@gcuf.edu.pk";
-		CharSequence password = "fbAlpha@782129";
+		CharSequence username = "username@hostingcompany.com";
+		CharSequence password = "password";
 		driver.findElement(By.id("m_login_email")).sendKeys(username);
 		driver.findElement(
 				By.xpath("/html/body/div/div/div[2]/div/table/tbody/tr/td/div[2]/div[2]/form/ul/li[2]/div/input"))
