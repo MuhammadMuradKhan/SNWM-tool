@@ -40,6 +40,7 @@ public class main {
 	static String pagetitle = "";
 	static String[][] pids;
 	static String[][] retpids;
+	static int hasnextcount = 0;
 
 	public static void main(String args[]) {
 		loadpostids();
@@ -55,15 +56,106 @@ public class main {
 		for (i = 0; i < pids.length; i++) {
 			System.out.println(">>>>>>>" + i + "<<<<<<<<<<");
 			if (pids[i][0].length() > 4) {
+				if (pids[i][0].contains("\"")) {
+					pids[i][0] = pids[i][0].replace("\"", "");
+				}
 				String[] rett = gettitleofpids(pids[i][0]);
-				writecsv.writegeneric1DS("comments_"+pids[i][0]+".csv", commentsdata);
+
+				writecsv.writegeneric1DS("comments_" + pids[i][0] + ".csv", commentsdata);
 			}
 		}
 	}
 
+	public static int hasnextfun() {
+		try {
+			WebElement hasNext = null;
+			hasNext = driver.findElement(By.linkText("View previous comments…"));
+			return hasnextcount = 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return hasnextcount = 0;
+		}
+	}
+
+	public static List<WebElement> analyzecomments(String inp) {
+		List<WebElement> ret = null;
+		int ok = 0;
+		try {
+			if (ok == 0) {
+				WebElement element = driver.findElement(By.cssSelector("div[id='ufi_" + inp + "']"));
+				List<WebElement> elementsub = element.findElements(
+						By.xpath("/html/body/div/div/div[2]/div/div[1]/div/div/div[3]/div[2]/div/div/div[3]"));
+				System.out.println(elementsub.size());
+				ret = elementsub.get(0).findElements(By.cssSelector("div[id]"));
+				System.out.println(ret.size());
+				if (ret.size() >= 1) {
+					ok = 1;
+				} else {
+					Exception e = null;
+					throw e;
+				}
+			}
+		} catch (Exception e) {
+		}
+		try {
+			if (ok == 0) {
+				WebElement element = driver.findElement(By.cssSelector("div[id='ufi_" + inp + "']"));
+				List<WebElement> elementsub = element
+						.findElements(By.xpath("/html/body/div/div/div[2]/div/div[1]/div[2]/div/div[4]"));
+				System.out.println(elementsub.size() + elementsub.get(0).getText());
+				ret = elementsub.get(0).findElements(By.cssSelector("div[id]"));
+				System.out.println(ret.size());
+				if (ret.size() >= 1) {
+					ok = 1;
+				} else {
+					Exception e = null;
+					throw e;
+				}
+			}
+
+		} catch (Exception e) {
+		}
+		try {
+			if (ok == 0) {
+				WebElement element = driver.findElement(By.cssSelector("div[id='ufi_" + inp + "']"));
+				List<WebElement> elementsub = element
+						.findElements(By.xpath("/html/body/div/div/div[2]/div/div[1]/div[2]/div/div[5]"));
+				System.out.println(elementsub.size() + elementsub.get(0).getText());
+				ret = elementsub.get(0).findElements(By.cssSelector("div[id]"));
+				System.out.println(ret.size() + ret.get(0).getText());
+				if (ret.size() >= 1) {
+					ok = 1;
+				} else {
+					Exception e = null;
+					throw e;
+				}
+			}
+
+		} catch (Exception e) {
+		}
+		try {
+			if (ok == 0) {
+				WebElement element = driver.findElement(By.cssSelector("div[id='ufi_" + inp + "']"));
+				List<WebElement> elementsub = element
+						.findElements(By.xpath("/html/body/div/div/div[2]/div/div[1]/div/div/div[3]/div[2]/div/div/div[4]"));
+				System.out.println(elementsub.size() + elementsub.get(0).getText());
+				ret = elementsub.get(0).findElements(By.cssSelector("div[id]"));
+				System.out.println(ret.size() + ret.get(0).getText());
+				if (ret.size() >= 1) {
+					ok = 1;
+				} else {
+					Exception e = null;
+					throw e;
+				}
+			}
+
+		} catch (Exception e) {
+		}		
+
+		return ret;
+	}
+
 	public static String[] gettitleofpids(String inp) {
-
-
 		/*
 		 * try { driver.get("https://m.facebook.com/" + inp); JavascriptExecutor js =
 		 * (JavascriptExecutor) driver; //
@@ -73,15 +165,27 @@ public class main {
 		 * Jsoup.parse(element.getAttribute("innerHTML")).text(); } } catch (Exception
 		 * e) { } return "EMPTY";
 		 */
-
+		int localhncheck = 0;
 		try {
+
+			localhncheck = hasnextcount;
+			if (inp.contains("_")) {
+				inp = inp.split("_")[1];
+			}
 			driver.get("https://m.facebook.com/" + inp);
 			TimeUnit.SECONDS.sleep(5);
-			WebElement hasNext = driver.findElement(By.linkText("View more commentsï¿½"));
-			while (hasNext.getAttribute("innerHTML").length() > 20) {
-				WebElement element = driver.findElement(By.cssSelector("div[id='ufi_" + inp + "']"));
-				WebElement commentids = element.findElement(By.cssSelector("div[class='eb cf']"));
-				List<WebElement> cids = commentids.findElements(By.cssSelector("div[class='bo']"));
+			WebElement hasNext = null;
+			List<WebElement> commentslist = null;
+			localhncheck = hasnextfun();
+			if (localhncheck == 0) {
+				commentslist = analyzecomments(inp);
+			}
+			if (localhncheck == 1) {
+				commentslist = analyzecomments(inp);
+			}
+
+			while (hasnextcount == 1 || commentslist.get(0).getAttribute("innerHTML").length() > 20) {
+				List<WebElement> cids = commentslist;
 				int i = 0;
 				for (i = 0; i < cids.size(); i++) {
 					String[] temp = new String[4];
@@ -99,9 +203,20 @@ public class main {
 					}
 					commentsdata.add(temp);
 				}
-				driver.findElement(By.linkText("View more commentsï¿½")).click();
-				TimeUnit.SECONDS.sleep(5);
-				hasNext = driver.findElement(By.linkText("View more commentsï¿½"));
+				if (localhncheck == 1) {
+					driver.findElement(By.linkText("View previous comments…")).click();
+					TimeUnit.SECONDS.sleep(5);
+				} else {
+					commentslist.clear();
+					break;
+				}
+				localhncheck = hasnextfun();
+				if (localhncheck == 0) {
+					commentslist = analyzecomments(inp);
+				}
+				if (localhncheck == 1) {
+					commentslist = analyzecomments(inp);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -111,7 +226,7 @@ public class main {
 	}
 
 	public static void loadpostids() {
-		pids = loadcsv.loadfile("posts.csv");
+		pids = loadcsv.loadfile("fdg_comments2.csv");
 		retpids = new String[pids.length][5];
 	}
 
@@ -177,8 +292,8 @@ public class main {
 		driver.get("https://m.facebook.com");
 		String title = driver.getTitle();
 		System.out.println(title);
-		CharSequence username = "username@hostingcompany.com";
-		CharSequence password = "password";
+		CharSequence username = "muhammadmurad@gcuf.edu.pk";
+		CharSequence password = "fbAlpha@782129";
 		driver.findElement(By.id("m_login_email")).sendKeys(username);
 		driver.findElement(
 				By.xpath("/html/body/div/div/div[2]/div/table/tbody/tr/td/div[2]/div[2]/form/ul/li[2]/div/input"))
